@@ -168,9 +168,9 @@ poetry self add poetry-plugin-shell
 poetry shell
 ```
 
-8. Instale as dependências do projeto:
+1. Instale as dependências do projeto (sem empacotar o projeto), use o seguinte comando:
 ```bash
-poetry add pandas pyarrow pytest numpy blue ignr
+poetry install --no-root
 ```
 
 ---
