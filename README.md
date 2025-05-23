@@ -77,24 +77,18 @@ Os testes automatizados com pytest asseguram que as transformações seguem as r
 
 ### Pré-requisitos
 
-1. Git e Github  
-Você deve ter o Git instalado em sua máquina.  
-Você também deve ter uma conta no GitHub.  
+1. Git e Github: Utilizado para versionamento do código e para repositório remoto do projeto.  
+Você deve ter o Git instalado em sua máquina e também deve ter uma conta no GitHub.  
+[Instruções de instalação do Git aqui](https://git-scm.com/doc).  
+[Instruções de instalação do Github aqui](https://docs.github.com/pt).
 
-2. Pyenv  
-É usado para gerenciar versões do Python.  
+2. Pyenv: É usado para gerenciar versões do Python em ambientes virtuais, fundamental para isolar a aplicação e evitar problemas de conflitos entre versões de bibliotecas e do próprio Python.  
 [Instruções de instalação do Pyenv aqui](https://github.com/pyenv/pyenv#installation).  
-Vamos usar nesse projeto o Python 3.11.4   
+Neste projeto, vamos utilizar o Python 3.11.4   
 
-3. Poetry  
-Este projeto utiliza Poetry para gerenciamento de dependências.  
+3. Poetry: Este projeto utiliza Poetry para gerenciamento de dependências.  
 [Instruções de instalação do Poetry aqui](https://python-poetry.org/docs/#installation).    
 
-4. Execute o comando para ver a documentação do projeto:
-
-```bash
-task doc
-```
 
 ### Estrutura de arquivos
 
@@ -168,7 +162,7 @@ poetry self add poetry-plugin-shell
 poetry shell
 ```
 
-1. Instale as dependências do projeto (sem empacotar o projeto), use o seguinte comando:
+8. Instale as dependências do projeto (sem empacotar o projeto), use o seguinte comando, constantes no arquivo `pyproject.toml`:
 ```bash
 poetry install --no-root
 ```
@@ -219,30 +213,43 @@ pytest
 ---
 
 ## TECNOLOGIAS UTILIZADAS
+
 - Python 3.11+, conforme documentação: https://www.python.org/
 - Pyenv, conforme documentação: https://pypi.org/project/pyenv-win/
 - Poetry, conforme documentação: https://pypi.org/project/poetry/
 - Git e Github, conforme documentação: https://git-scm.com/ e https://github.com/
 
 ## BIBLIOTECAS UTILIZADAS
-- Pandas: para manipulação dos dados, conforme documentação: https://pypi.org/project/pandas/
+
+- Pandas: para manipulação dos dados, conforme documentação: https://pypi.org/project/pandas/  
 - Pyarrow: para leitura e escrita na extensão Parquet, conforme documentação: https://pypi.org/project/pyarrow/
-- Pytest: testes automatizados, conforme documentação: https://pypi.org/project/pytest/
-- Numpy: é uma biblioteca para realizar cálculos numéricos e manipulação de dados em grande escala, conforme documentação: https://pypi.org/project/numpy/
-- Blue: para adoção de melhores práticas, segundo a Pep8, conforme documentação: https://pypi.org/project/blue/
-- Ignr: para criação automatizada prévia do .gitignore, conforme documentação: https://pypi.org/project/ignr/
+- Pytest: testes automatizados, conforme documentação: https://pypi.org/project/pytest/  
+- Numpy: é uma biblioteca para realizar cálculos numéricos e manipulação de dados em grande escala, conforme documentação: https://pypi.org/project/numpy/  
+- Blue: para adoção de melhores práticas, segundo a Pep8, conforme documentação: https://pypi.org/project/blue/  
+- Ignr: para criação automatizada prévia do .gitignore, conforme documentação: https://pypi.org/project/ignr/  
+
+
+## DOCUMENTAÇÃO
+
+Execute o comando para ver a documentação do projeto:
+
+```bash
+task doc
+```
 
 ---
 
 ## COMENTÁRIOS
 
 ### Agora você tem:
+
 🔹 Um Pipeline robusto;  
 🔹 Testes intermediários;  
 🔹 Logs completos;  
 🔹 Documentação top!😉  
 
 ### Este projeto entrega um pipeline ETL completo e profissional, seguindo as boas práticas de Engenharia de Dados, com foco em:
+
 🔹 Modularidade: cada etapa separada com responsabilidade única: Extract, Transform e Load.  
 🔹 Testabilidade: testes automatizados com pytest em cada etapa, garantindo qualidade e segurança na evolução do código.  
 🔹 Observabilidade: sistema de logging estruturado, com geração automática de arquivos de log identificados por data e hora, permitindo rastreabilidade completa de cada execução.  
@@ -253,17 +260,21 @@ pytest
 ## PRINCIPAIS CARACTERÍSTICAS TÉCNICAS
 
 ### 🔒 Segurança e Controle:
+
 Validação automatizada de cada etapa via testes unitários com pytest, assegurando que falhas sejam identificadas e tratadas de forma imediata e controlada.  
 Por meio de uma arquitetura defensiva, o pipeline interrompe automaticamente a execução em caso de erro, evitando propagação de inconsistências.
 
 ### 🛠️ Robustez e Escalabilidade:
+
 Estrutura modular orientada a funções específicas, garantindo manutenibilidade e facilidade de extensão para novos requisitos ou integrações.  
 Logging estruturado, com timestamp de execução e status de cada etapa, viabilizando rastreabilidade completa e facilitando auditorias.
 
 ### 📊 Observabilidade e Transparência:
+
 Todos os eventos e operações são registrados em logs persistentes, gerados automaticamente e armazenados em `docs/`, permitindo uma visão clara da execução e apoio a processos de compliance e forense.
 
 ### 🚀 Entrega de Valor:
+
 Automação de todo o fluxo ETL: desde a ingestão até a exportação dos dados tratados e validados, com garantias explícitas de qualidade e confiabilidade, por meio da mitigação de riscos operacionais com testes intermediários, evitando a entrega de dados corrompidos ou incompletos.  
 Preparação de dados em formatos otimizados (Parquet e Excel), prontos para análise, reporting ou integração com sistemas de Business Inteligence.  
 
