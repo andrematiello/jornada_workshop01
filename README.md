@@ -36,18 +36,18 @@ O arquivo armazena todas as etapas da pipeline, dos testes unitários com nome n
 
 1. Git e Github  
 Você deve ter o Git instalado em sua máquina.  
-Você também deve ter uma conta no GitHub.
+Você também deve ter uma conta no GitHub.  
 
 2. Pyenv  
 É usado para gerenciar versões do Python.  
 [Instruções de instalação do Pyenv aqui](https://github.com/pyenv/pyenv#installation).  
-Vamos usar nesse projeto o Python 3.11.3.
-Para usuários Windows, é recomendado assistirem esse tutorial: [Youtube](https://www.youtube.com/watch?v=TkcqjLu1dgA).
+Vamos usar nesse projeto o Python 3.11.4  
+Para usuários Windows, é recomendado assistirem esse tutorial: [Youtube](https://www.youtube.com/watch?v=TkcqjLu1dgA).  
 
 1. Poetry  
 Este projeto utiliza Poetry para gerenciamento de dependências.  
 [Instruções de instalação do Poetry aqui](https://python-poetry.org/docs/#installation).  
-Se você é usuário Windows, recomendo assistir esse vídeo: [Youtube](https://www.youtube.com/watch?v=BuepZYn1xT8).
+Se você é usuário Windows, recomendo assistir esse vídeo: [Youtube](https://www.youtube.com/watch?v=BuepZYn1xT8).  
 
 ---
 
@@ -67,19 +67,19 @@ cd workshop
 
 3. Configure a versão correta do Python:
 ```bash
-pyenv install 3.11.5
-pyenv local 3.11.5
+pyenv install 3.11.4 3.13.2 
+pyenv local 3.11.4
 ```
 
 4. Configure o Poetry para usar o Python 3.11.5 e ative o ambiente virtual:
 ```bash
-poetry env use 3.11.5
-poetry shell
+poetry env use 3.11.4
+poetry source .venv/Scripts/activate
 ```
 
 5. Instale as dependências:
 ```bash
-pip install -r requirements.txt
+poetry add pandas pyarrow pytest numpy
 ```
 
 ---
