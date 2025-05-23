@@ -150,27 +150,27 @@ pyenv install 3.11.4
 pyenv local 3.11.4
 ```
 
-5. Configure o Poetry para usar o Python 3.11.4 e ative o ambiente virtual:
+1. Configure o Poetry para usar o Python 3.11.4:
 ```bash
 poetry env use 3.11.4
 ```
 
-6. Para criar o ambiente virtual, desde a versão 2 do Poetry, segundo a documentação oficial, o Poetry Shell não acompanha a instalação padrão, devendo er instalado como uma dependência [Poetry Docs](https://python-poetry.org/docs/managing-environments/#powershell):
+1. Para criar o ambiente virtual, desde a versão 2 do Poetry, segundo a documentação oficial, o Poetry Shell não acompanha a instalação padrão, devendo er instalado como uma dependência [Poetry Docs](https://python-poetry.org/docs/managing-environments/#powershell):
 ```bash
 poetry self add poetry-plugin-shell
 ```
 
-7. Para ativar o ambiente virtual:
+1. Para ativar o ambiente virtual:
 ```bash
 poetry shell
 ```
 
-8. Atualize o registro de forma precisa e imutável todas as dependências e suas versões, incluindo as subdependências. no arquivo `poetry.lock`:
+1. Atualize o registro de forma precisa e imutável todas as dependências e suas versões, incluindo as subdependências. no arquivo `poetry.lock`:
 ```bash
 poetry lock
 ```
 
-9. Instale as dependências do projeto (sem empacotar o projeto), use o seguinte comando, constantes no arquivo `pyproject.toml`:
+1. Instale as dependências do projeto (sem empacotar o projeto), use o seguinte comando, constantes no arquivo `pyproject.toml`:
 ```bash
 poetry install --no-root
 ```
