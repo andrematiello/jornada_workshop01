@@ -1,3 +1,4 @@
 pandas>=1.0
 pyarrow>=9.0
 pytest>=7.0
+numpy>=1.20

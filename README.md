@@ -5,51 +5,20 @@
 
 # Pipeline ETL Modular com Testes e Logging
 
-## Descrição do Projeto
+## Sobre o Projeto
 
-Este projeto implementa um pipeline ETL modular em Python, dividido em três etapas principais:
+Este projeto possui o principal foco na construção padronizada de uma estrutura de projetos e documentação, de modo acessório, portanto, com menor preocupação com a sofisticação do ETL, implementa um pipeline ETL modular em Python, dividindo-o em três etapas principais:
 
 - Extract: leitura e concatenação de múltiplos arquivos Excel.
 - Transform: limpeza e normalização dos dados, exportação para Parquet.
 - Load: leitura de Parquet e exportação final para Excel.
 
+Fora observado rigor na documentação e estrutura do projeto.
 Após cada etapa, o pipeline executa testes unitários com `pytest`.  
 No final, executa um teste de integração que valida o sucesso global!🚀 
 
 Todos os eventos são registrados em um arquivo de log gerado automaticamente na pasta `docs/`.
 O arquivo armazena todas as etapas da pipeline, dos testes unitários com nome no formato: `docs/log_YYYYMMDD_HHMMSS.log`.
-
----
-
-## Como rodar o projeto:
-1. Clone o repositório: git clone https://github.com/andrematiello/jornada_workshop01
-2. Acesse o dir: cd workshop
-3. Instale as dependências: pip install -r requirements.txt
-4. Execute o pipeline: python -m app.main
-
----
-
-## Como rodar os testes separadamente:
-Todos os testes usam pytest.
-
-### Para rodar:
-#### Todos de uma vez: pytest
-
-#### Individualmente:
-- Teste do extract: `pytest tests/test_extract.py`
-- Teste do transform: `pytest tests/test_transform.py`
-- Teste do load: `pytest tests/test_load.py`
-- Teste de toda pipeline: `pytest tests/test_pipeline.py`
-
----
-
-## Tecnologias utilizadas
-- Python 3.11+
-- pandas: manipulação de dados.
-- pyarrow: leitura e escrita Parquet.
-- pytest: testes automatizados.
-
----
 
 ## Fluxo do Pipeline
 - Extract → Teste, se ok:
@@ -61,6 +30,120 @@ Todos os testes usam pytest.
 
 ---
 
+## Começando
+
+### Pré-requisitos
+
+1. Git e Github
+Você deve ter o Git instalado em sua máquina.
+Você também deve ter uma conta no GitHub.
+
+2. Pyenv
+Pyenv: É usado para gerenciar versões do Python.
+[Instruções de instalação do Pyenv aqui](https://github.com/pyenv/pyenv#installation).
+Vamos usar nesse projeto o Python 3.11.3.
+Para usuários Windows, é recomendado assistirem esse tutorial [Youtube](https://www.youtube.com/watch?v=TkcqjLu1dgA).
+
+3. Poetry
+Poetry: Este projeto utiliza Poetry para gerenciamento de dependências.
+[Instruções de instalação do Poetry aqui](https://python-poetry.org/docs/#installation).
+Se você é usuário Windows, recomendo assistir esse vídeo: [Youtube](https://www.youtube.com/watch?v=BuepZYn1xT8).
+Que instala o Python, Poetry e VSCode. Mas um simples comando PIP INSTALL POETRY já resolve.
+
+### Instalação e Configuração
+
+1. Clone o repositório:
+
+```bash
+git clone https://github.com/andrematiello/jornada_workshop01
+```
+
+2. Acesse o dir:
+
+```bash
+cd workshop
+```
+
+3. Configure a versão correta do Python:
+```bash
+pyenv install 3.11.5
+pyenv local 3.11.5
+```
+
+4. Configure o Poetry para usar o Python 3.11.5 e ative o ambiente virtual:
+```bash
+poetry env use 3.11.5
+poetry shell
+```
+
+5. Instale as dependências:
+```bash
+pip install -r requirements.txt
+```
+
+### Como rodar o projeto:
+
+1. Execute o comando para ver a documentação do projeto:
+
+```bash
+task doc
+```
+
+2. Execute o pipeline:
+```bash
+python -m app.main`
+```
+
+3. Verifique na pasta data/output se o arquivo foi gerado corretamente.
+
+---
+
+## Como rodar os testes:
+Todos os testes usam a biblioteca pytest.
+
+#### Individualmente:
+
+- Teste do extract:
+```bash
+pytest tests/test_extract.py
+```
+
+- Teste do transform:
+```bash
+pytest tests/test_transform.py
+```
+
+- Teste do load:
+```bash
+pytest tests/test_load.py
+```
+
+- Teste de toda pipeline:
+```bash
+pytest tests/test_pipeline.py
+```
+
+### Todos de uma vez:
+
+```bash
+pytest
+```
+
+---
+
+## Tecnologias utilizadas
+- Python 3.11+
+- Pyenv
+- Poetry
+- Git e Github
+
+## Bibliotecas utilizadas
+- Pandas: manipulação de dados.
+- Pyarrow: leitura e escrita Parquet.
+- Pytest: testes automatizados.
+
+---
+
 ##  Criação do arquivo de requirements.txt
 - pandas>=1.0
 - pyarrow>=9.0
@@ -69,6 +152,7 @@ Todos os testes usam pytest.
 ---
 
 ## Comentários acerca do projeto:
+
 ### Agora você tem:
 🔹 Pipeline robusto
 🔹 Testes intermediários
@@ -85,6 +169,7 @@ Todos os testes usam pytest.
 🔹 Estética e usabilidade — enriquecido com emojis e mensagens amigáveis para tornar a execução mais visual e intuitiva.
 
 ## Principais características técnicas:
+
 ### 🔒 Segurança e Controle:
 Validação automatizada de cada etapa via testes unitários com pytest, assegurando que falhas sejam identificadas e tratadas de forma imediata e controlada.
 Arquitetura defensiva: o pipeline interrompe automaticamente a execução em caso de erro, evitando propagação de inconsistências.
@@ -102,7 +187,12 @@ Mitigação de riscos operacionais com testes intermediários, evitando a entreg
 Preparação de dados em formatos otimizados (Parquet e Excel), prontos para análise, reporting ou integração com sistemas de inteligência.
 
 ---
-Projeto inspirado no workshop 01 da Jornada de Dados;
+
+Projeto inspirado no workshop 01 da Jornada de Dados, com adaptações;
 Projeto realizado com apoio de Inteligência Artificial (ChatGPT);
+
+## Para dúvidas, sugestões ou feedbacks:
+
+### André Matiello C. Caramanti - [matiello.andre@hotmail.com](mailto:matiello.andre@hotmail.com)
 
  ## ✅"Este pipeline não apenas executa, mas valida, registra e garante a qualidade dos dados de ponta a ponta, conforme as melhores práticas de Engenharia de Dados."

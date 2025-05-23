@@ -1,126 +1,3 @@
-# import subprocess
-# from app.pipeline.extract import extract_from_excel
-# from app.pipeline.transform import transform_data, convert_df_to_parquet
-# from app.pipeline.load import load_parquets, save_to_excel
-
-# def run_tests(test_file: str) -> bool:
-#     """
-#     Executa testes unitários com pytest.
-
-#     Parâmetros:
-#         test_file (str): Caminho para o arquivo de teste.
-
-#     Retorno:
-#         bool: True se os testes passaram, False caso contrário.
-#     """
-#     print(f"\n✅ Rodando testes: {test_file}")
-#     result = subprocess.run(['pytest', test_file], capture_output=True, text=True)
-#     print(result.stdout)
-#     if result.returncode == 0:
-#         print(f"✅ Testes aprovados: {test_file}")
-#         return True
-#     else:
-#         print(f"❌ Testes falharam: {test_file}")
-#         return False
-
-# if __name__ == "__main__":
-#     print("🚀 Iniciando pipeline ETL modular com validação intermediária...\n")
-
-#     # 🔹 Etapa Extract
-#     print("🔹 Executando Extract...")
-#     df_extracted = extract_from_excel('data/input')
-
-#     if not run_tests('tests/test_extract.py'):
-#         print("❌ Pipeline interrompido após Extract.")
-#         exit(1)
-
-#     # 🔹 Etapa Transform
-#     print("🔹 Executando Transform...")
-#     df_transformed = transform_data(df_extracted)
-#     convert_df_to_parquet(df_transformed, 'data/output/concatenated_data.parquet')
-
-#     if not run_tests('tests/test_transform.py'):
-#         print("❌ Pipeline interrompido após Transform.")
-#         exit(1)
-
-#     # 🔹 Etapa Load
-#     print("🔹 Executando Load...")
-#     df_loaded = load_parquets('data/output')
-#     save_to_excel(df_loaded, 'data/output/files_loaded.xlsx')
-
-#     if not run_tests('tests/test_load.py'):
-#         print("❌ Pipeline interrompido após Load.")
-#         exit(1)
-
-#     print("\n✅ Pipeline finalizado com sucesso!")
-
-
-
-
-
-
-# import subprocess
-# from app.pipeline.extract import extract_from_excel
-# from app.pipeline.transform import transform_data, convert_df_to_parquet
-# from app.pipeline.load import load_parquets, save_to_excel
-
-# def run_tests(test_file: str) -> bool:
-#     """
-#     Executa testes unitários com pytest.
-
-#     Parâmetros:
-#         test_file (str): Caminho para o arquivo de teste.
-
-#     Retorno:
-#         bool: True se os testes passaram, False caso contrário.
-#     """
-#     print(f"\n✅ Rodando testes: {test_file}")
-#     result = subprocess.run(['pytest', test_file], capture_output=True, text=True)
-#     print(result.stdout)
-#     if result.returncode == 0:
-#         print(f"✅ Testes aprovados: {test_file}")
-#         return True
-#     else:
-#         print(f"❌ Testes falharam: {test_file}")
-#         return False
-
-# if __name__ == "__main__":
-#     print("🚀 Iniciando pipeline ETL modular com validação intermediária...\n")
-
-#     # 🔹 Etapa Extract
-#     print("🔹 Executando Extract...")
-#     df_extracted = extract_from_excel('data/input')
-
-#     if not run_tests('tests/test_extract.py'):
-#         print("❌ Pipeline interrompido após Extract.")
-#         exit(1)
-
-#     # 🔹 Etapa Transform
-#     print("🔹 Executando Transform...")
-#     df_transformed = transform_data(df_extracted)
-#     convert_df_to_parquet(df_transformed, 'data/output/concatenated_data.parquet')
-
-#     if not run_tests('tests/test_transform.py'):
-#         print("❌ Pipeline interrompido após Transform.")
-#         exit(1)
-
-#     # 🔹 Etapa Load
-#     print("🔹 Executando Load...")
-#     df_loaded = load_parquets('data/output')
-#     save_to_excel(df_loaded, 'data/output/files_loaded.xlsx')
-
-#     if not run_tests('tests/test_load.py'):
-#         print("❌ Pipeline interrompido após Load.")
-#         exit(1)
-
-#     # 🔹 Etapa Teste Final: Pipeline
-#     print("🔹 Executando Teste Final do Pipeline...")
-#     if not run_tests('tests/test_pipeline.py'):
-#         print("❌ Pipeline falhou na validação final.")
-#         exit(1)
-
-#     print("\n✅ Pipeline completo e validado com sucesso!")
-
 import subprocess
 import os
 import time
@@ -129,11 +6,11 @@ from app.pipeline.extract import extract_from_excel
 from app.pipeline.transform import transform_data, convert_df_to_parquet
 from app.pipeline.load import load_parquets, save_to_excel
 
-# Criar diretório de logs (docs) se não existir
-os.makedirs('docs', exist_ok=True)
+# Criar diretório de logs (docs/logs) se não existir
+os.makedirs('docs/logs', exist_ok=True)
 
 # Nome do arquivo de log com data e hora
-log_filename = f"docs/log_{datetime.now().strftime('%Y%m%d_%H%M%S')}.log"
+log_filename = f"docs/logs/log_{datetime.now().strftime('%Y%m%d_%H%M%S')}.log"
 
 def log_and_print(message: str):
     """
