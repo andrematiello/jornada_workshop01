@@ -1,7 +1,10 @@
 ![Python](https://img.shields.io/badge/python-3.11%2B-blue)
 ![Tests](https://img.shields.io/badge/tests-passing-brightgreen)
 ![License](https://img.shields.io/badge/license-MIT-green)
-[us English](EN-README.md)
+
+<p align="right">
+  <a href="EN-README.md">English</a>
+</p>
 
 <a href="https://www.flaticon.com/free-icons/etl" title="etl icons">
   <img align="left" alt="etl" height="45" width="45" src="./assets/etl.png">
