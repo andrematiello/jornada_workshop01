@@ -4,7 +4,7 @@
 
 
 <a href="https://www.flaticon.com/free-icons/etl" title="etl icons">
-  <img align="left" alt="etl" height="30" width="30" src="./assets/etl.png">
+  <img align="left" alt="etl" height="45" width="45" src="./assets/etl.png">
 </a>
 
 # PIPELINE ETL MODULAR SIMPLES COM TESTES E LOGS
