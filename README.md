@@ -13,11 +13,11 @@ Este projeto possui o principal foco na construção padronizada de uma estrutur
 - Transform: limpeza e normalização dos dados, exportação para Parquet.
 - Load: leitura de Parquet e exportação final para Excel.
 
-Fora observado rigor na documentação e estrutura do projeto.
+Fora observado rigor na documentação e estrutura do projeto.  
 Após cada etapa, o pipeline executa testes unitários com `pytest`.  
 No final, executa um teste de integração que valida o sucesso global!🚀 
 
-Todos os eventos são registrados em um arquivo de log gerado automaticamente na pasta `docs/`.
+Todos os eventos são registrados em um arquivo de log gerado automaticamente na pasta `docs/`.  
 O arquivo armazena todas as etapas da pipeline, dos testes unitários com nome no formato: `docs/log_YYYYMMDD_HHMMSS.log`.
 
 ## Fluxo do Pipeline
@@ -50,6 +50,8 @@ Poetry: Este projeto utiliza Poetry para gerenciamento de dependências.
 Se você é usuário Windows, recomendo assistir esse vídeo: [Youtube](https://www.youtube.com/watch?v=BuepZYn1xT8).
 Que instala o Python, Poetry e VSCode. Mas um simples comando PIP INSTALL POETRY já resolve.
 
+---
+
 ### Instalação e Configuração
 
 1. Clone o repositório:
@@ -81,6 +83,8 @@ poetry shell
 pip install -r requirements.txt
 ```
 
+---
+
 ### Como rodar o projeto:
 
 1. Execute o comando para ver a documentação do projeto:
@@ -101,7 +105,7 @@ python -m app.main`
 ## Como rodar os testes:
 Todos os testes usam a biblioteca pytest.
 
-#### Individualmente:
+### Individualmente:
 
 - Teste do extract:
 ```bash
@@ -144,29 +148,22 @@ pytest
 
 ---
 
-##  Criação do arquivo de requirements.txt
-- pandas>=1.0
-- pyarrow>=9.0
-- pytest>=7.0
-
----
-
 ## Comentários acerca do projeto:
 
 ### Agora você tem:
-🔹 Pipeline robusto
-🔹 Testes intermediários
-🔹 Logs completos
-🔹 Documentação top!
+🔹 Pipeline robusto  
+🔹 Testes intermediários  
+🔹 Logs completos  
+🔹 Documentação top!  
 🔹 requirements.txt
 
 ### Este projeto entrega um pipeline ETL completo e profissional, seguindo as melhores práticas de Engenharia de Dados, com foco em:
-🔹 Modularidade — cada etapa separada com responsabilidade única: Extract, Transform e Load.
-🔹 Testabilidade — testes automatizados com pytest em cada etapa, garantindo qualidade e segurança na evolução do código.
-🔹 Observabilidade — sistema de logging estruturado, com geração automática de arquivos de log identificados por data e hora, permitindo rastreabilidade completa de cada execução.
-🔹 Automação — execução sequencial e validada de todo o processo, com parada imediata em caso de falha, evitando propagação de erros.
-🔹 Documentação clara — orientações objetivas sobre execução, estrutura do projeto e fluxo de dados, facilitando manutenção e escalabilidade.
-🔹 Estética e usabilidade — enriquecido com emojis e mensagens amigáveis para tornar a execução mais visual e intuitiva.
+🔹 Modularidade — cada etapa separada com responsabilidade única: Extract, Transform e Load.  
+🔹 Testabilidade — testes automatizados com pytest em cada etapa, garantindo qualidade e segurança na evolução do código.  
+🔹 Observabilidade — sistema de logging estruturado, com geração automática de arquivos de log identificados por data e hora, permitindo rastreabilidade completa de cada execução.  
+🔹 Automação — execução sequencial e validada de todo o processo, com parada imediata em caso de falha, evitando propagação de erros.  
+🔹 Documentação clara — orientações objetivas sobre execução, estrutura do projeto e fluxo de dados, facilitando manutenção e escalabilidade.  
+🔹 Estética e usabilidade — enriquecido com emojis e mensagens amigáveis para tornar a execução mais visual e intuitiva.  
 
 ## Principais características técnicas:
 
@@ -188,11 +185,11 @@ Preparação de dados em formatos otimizados (Parquet e Excel), prontos para an�
 
 ---
 
-Projeto inspirado no workshop 01 da Jornada de Dados, com adaptações;
+Projeto inspirado no workshop 01 da Jornada de Dados, com adaptações;  
 Projeto realizado com apoio de Inteligência Artificial (ChatGPT);
 
 ## Para dúvidas, sugestões ou feedbacks:
 
-### André Matiello C. Caramanti - [matiello.andre@hotmail.com](mailto:matiello.andre@hotmail.com)
+#### André Matiello C. Caramanti - [matiello.andre@hotmail.com](mailto:matiello.andre@hotmail.com)
 
- ## ✅"Este pipeline não apenas executa, mas valida, registra e garante a qualidade dos dados de ponta a ponta, conforme as melhores práticas de Engenharia de Dados."
+#### ✅"Este pipeline não apenas executa, mas valida, registra e garante a qualidade dos dados de ponta a ponta, conforme as melhores práticas de Engenharia de Dados."
