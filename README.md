@@ -3,9 +3,12 @@
 ![License](https://img.shields.io/badge/license-MIT-green)
 
 
-# <a href="https://www.flaticon.com/free-icons/etl" title="etl icons">
+<a href="https://www.flaticon.com/free-icons/etl" title="etl icons">
   <img align="left" alt="etl" height="30" width="30" src="./assets/etl.png">
-</a> PIPELINE ETL MODULAR SIMPLES COM TESTES E LOGS
+</a>
+
+# PIPELINE ETL MODULAR SIMPLES COM TESTES E LOGS
+
 
 ## SOBRE O PROJETO
 
