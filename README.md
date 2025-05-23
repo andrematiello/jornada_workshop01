@@ -3,7 +3,7 @@
 ![License](https://img.shields.io/badge/license-MIT-green)
 
 
-# PIPELINE ETL MODULAR SIMPLES COM TESTES E LOGGING
+# PIPELINE ETL MODULAR SIMPLES COM TESTES E LOGS
 
 ## SOBRE O PROJETO
 
@@ -41,13 +41,17 @@ Você também deve ter uma conta no GitHub.
 2. Pyenv  
 É usado para gerenciar versões do Python.  
 [Instruções de instalação do Pyenv aqui](https://github.com/pyenv/pyenv#installation).  
-Vamos usar nesse projeto o Python 3.11.4  
-Para usuários Windows, é recomendado assistirem esse tutorial: [Youtube](https://www.youtube.com/watch?v=TkcqjLu1dgA).  
+Vamos usar nesse projeto o Python 3.11.4   
 
-1. Poetry  
+3. Poetry  
 Este projeto utiliza Poetry para gerenciamento de dependências.  
-[Instruções de instalação do Poetry aqui](https://python-poetry.org/docs/#installation).  
-Se você é usuário Windows, recomendo assistir esse vídeo: [Youtube](https://www.youtube.com/watch?v=BuepZYn1xT8).  
+[Instruções de instalação do Poetry aqui](https://python-poetry.org/docs/#installation).    
+
+4. Execute o comando para ver a documentação do projeto:
+
+```bash
+task doc
+```
 
 ---
 
@@ -67,11 +71,11 @@ cd workshop
 
 3. Configure a versão correta do Python:
 ```bash
-pyenv install 3.11.4 3.13.2 
+pyenv install 3.11.4 
 pyenv local 3.11.4
 ```
 
-4. Configure o Poetry para usar o Python 3.11.5 e ative o ambiente virtual:
+4. Configure o Poetry para usar o Python 3.11.4 e ative o ambiente virtual:
 ```bash
 poetry env use 3.11.4
 poetry source .venv/Scripts/activate
@@ -86,18 +90,12 @@ poetry add pandas pyarrow pytest numpy
 
 ### Como rodar o projeto:
 
-1. Execute o comando para ver a documentação do projeto:
-
+1. Execute o pipeline:
 ```bash
-task doc
+python -m app.main
 ```
 
-2. Execute o pipeline:
-```bash
-python -m app.main`
-```
-
-3. Verifique na pasta data/output se o arquivo foi gerado corretamente: `data/output`
+2. Verifique na pasta data/output se o arquivo foi gerado corretamente: `data/output`
 
 ---
 
@@ -163,28 +161,28 @@ pytest
 ## PRINCIPAIS CARACTERÍSTICAS TÉCNICAS
 
 ### 🔒 Segurança e Controle:
-Validação automatizada de cada etapa via testes unitários com pytest, assegurando que falhas sejam identificadas e tratadas de forma imediata e controlada.
-Arquitetura defensiva: o pipeline interrompe automaticamente a execução em caso de erro, evitando propagação de inconsistências.
+Validação automatizada de cada etapa via testes unitários com pytest, assegurando que falhas sejam identificadas e tratadas de forma imediata e controlada.  
+Por meio de uma arquitetura defensiva, o pipeline interrompe automaticamente a execução em caso de erro, evitando propagação de inconsistências.
 
 ### 🛠️ Robustez e Escalabilidade:
-Estrutura modular orientada a funções específicas, garantindo manutenibilidade e facilidade de extensão para novos requisitos ou integrações.
+Estrutura modular orientada a funções específicas, garantindo manutenibilidade e facilidade de extensão para novos requisitos ou integrações.  
 Logging estruturado, com timestamp de execução e status de cada etapa, viabilizando rastreabilidade completa e facilitando auditorias.
 
 ### 📊 Observabilidade e Transparência:
-Todos os eventos e operações são registrados em logs persistentes, gerados automaticamente e armazenados em docs/, permitindo uma visão clara da execução e apoio a processos de compliance e forense.
+Todos os eventos e operações são registrados em logs persistentes, gerados automaticamente e armazenados em `docs/`, permitindo uma visão clara da execução e apoio a processos de compliance e forense.
 
 ### 🚀 Entrega de Valor:
-Automação de todo o fluxo ETL: desde a ingestão até a exportação dos dados tratados e validados, com garantias explícitas de qualidade e confiabilidade.
-Mitigação de riscos operacionais com testes intermediários, evitando a entrega de dados corrompidos ou incompletos.
-Preparação de dados em formatos otimizados (Parquet e Excel), prontos para análise, reporting ou integração com sistemas de inteligência.
+Automação de todo o fluxo ETL: desde a ingestão até a exportação dos dados tratados e validados, com garantias explícitas de qualidade e confiabilidade, por meio da mitigação de riscos operacionais com testes intermediários, evitando a entrega de dados corrompidos ou incompletos.  
+Preparação de dados em formatos otimizados (Parquet e Excel), prontos para análise, reporting ou integração com sistemas de Business Inteligence.  
 
 ---
 
 Projeto inspirado no workshop 01 da Jornada de Dados, com adaptações;  
 Projeto realizado com apoio de Inteligência Artificial (ChatGPT);
+Para próximas melhorias, extração de dados reais, com limpeza e transformação, posteriormente o load em um Data Warehouse, quem sabe uma cloud provider. Ainda, um ETL orquestrado com Apache Airflow, boas práticas de CI/CD.
 
 ## DÚVIDAS, SUGESTÕES OU FEEDBACKS
 
-#### André Matiello C. Caramanti - [matiello.andre@hotmail.com](mailto:matiello.andre@hotmail.com)
+#### 🚀 André Matiello C. Caramanti - [matiello.andre@hotmail.com](mailto:matiello.andre@hotmail.com)
 
-#### ✅"Este pipeline não apenas executa, mas valida, registra e garante a qualidade dos dados de ponta a ponta, conforme as melhores práticas de Engenharia de Dados."
+#### "Este pipeline não apenas executa, mas valida, registra e garante a qualidade dos dados de ponta a ponta, conforme as melhores práticas de Engenharia de Dados."
