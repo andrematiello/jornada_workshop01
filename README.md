@@ -182,23 +182,25 @@ poetry install --no-root
 python -m app.main
 ```
 
-2. Verifique na pasta data/output se o arquivo foi gerado corretamente: `data/output`
+2. Verifique na pasta `data/output` se o arquivo foi gerado corretamente.  
+
+3. Verifique na pasta `docs/logs` se o arquivo foi gerado corretamente, conforme a data e hora do ETL.  
 
 ---
 
 ### Como rodar os testes individualmente:
 
-- Teste do extract:
+- Teste da extração dos dados (extract):
 ```bash
 pytest tests/test_extract.py
 ```
 
-- Teste do transform:
+- Teste da transformação dos dados (transform):
 ```bash
 pytest tests/test_transform.py
 ```
 
-- Teste do load:
+- Teste da carga dos dados em arquivos para excel e formato .parquet (load):
 ```bash
 pytest tests/test_load.py
 ```
@@ -217,18 +219,18 @@ pytest
 ---
 
 ## TECNOLOGIAS UTILIZADAS
-- Python 3.11+
-- Pyenv. https://pypi.org/project/pyenv-win/
-- Poetry. https://pypi.org/project/poetry/
-- Git e Github
+- Python 3.11+, conforme documentação: https://www.python.org/
+- Pyenv, conforme documentação: https://pypi.org/project/pyenv-win/
+- Poetry, conforme documentação: https://pypi.org/project/poetry/
+- Git e Github, conforme documentação: https://git-scm.com/ e https://github.com/
 
 ## BIBLIOTECAS UTILIZADAS
-- Pandas: para manipulação dos dados. https://pypi.org/project/pandas/
-- Pyarrow: para leitura e escrita na extensão Parquet. https://pypi.org/project/pyarrow/
-- Pytest: testes automatizados. https://pypi.org/project/pytest/
-- Numpy: é uma biblioteca para realizar cálculos numéricos e manipulação de dados em grande escala
-- Blue: para adoção de melhores práticas, segundo a Pep8. https://pypi.org/project/blue/
-- Ignr: para criação automatizada prévia do .gitignore. https://pypi.org/project/ignr/
+- Pandas: para manipulação dos dados, conforme documentação: https://pypi.org/project/pandas/
+- Pyarrow: para leitura e escrita na extensão Parquet, conforme documentação: https://pypi.org/project/pyarrow/
+- Pytest: testes automatizados, conforme documentação: https://pypi.org/project/pytest/
+- Numpy: é uma biblioteca para realizar cálculos numéricos e manipulação de dados em grande escala, conforme documentação: https://pypi.org/project/numpy/
+- Blue: para adoção de melhores práticas, segundo a Pep8, conforme documentação: https://pypi.org/project/blue/
+- Ignr: para criação automatizada prévia do .gitignore, conforme documentação: https://pypi.org/project/ignr/
 
 ---
 
