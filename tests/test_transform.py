@@ -1,16 +1,13 @@
 import pandas as pd
 import numpy as np
-from app.pipeline.extract import read_excel_files
 from app.pipeline.transform import transform_data
-
-
 
 def test_transform_data():
     # ✅ Arrange
     data = {
         'col1': [1, 2, 3, np.nan],
         'col2': [4.0, 5.0, 6.0, 7.0],
-        'col3': ['a', 'b', 'c', 'd']
+        'col3': ['a', 'b', 'c', 'd'],
     }
     df = pd.DataFrame(data)
 
