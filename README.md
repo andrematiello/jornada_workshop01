@@ -97,13 +97,36 @@ task doc
 ```
 
 ### Estrutura de arquivos
----
 
 Estrutura básica de arquivos para o projeto encontra-se organizada da seguinte maneira:
 ```bash
-
+📦 jornada_workshop01
+├── 📁 app
+│   └── 📁 pipeline
+│       ├── extract.py
+│       ├── transform.py
+│       └── load.py
+├── 📁 assets
+│   └── etl.png
+├── 📁 data
+│   ├── 📁 input
+│   └── 📁 output
+│       ├── concatenated_data.parquet
+│       └── files_loaded.xlsx
+├── 📁 docs
+│   └── 📁 logs
+│       └── log_YYYYMMDD_HHMMSS.txt
+├── 📁 tests
+│   ├── test_extract.py
+│   ├── test_transform.py
+│   ├── test_load.py
+│   └── test_pipeline.py
+├── .gitignore
+├── README.md
+├── pytest.ini
+├── pyproject.toml
+└── main.py
 ```
-
 ---
 
 ### Instalação e Configuração
