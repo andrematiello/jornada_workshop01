@@ -211,5 +211,5 @@ if __name__ == "__main__":
     if not run_tests('tests/test_pipeline.py', '✅'):
         exit(1)
 
-    log_event("Pipeline 🎯", "FIM", 0.0, "Pipeline finalizado com sucesso.")
+    log_event("Pipeline 🎯", "FIM", 0.0, "Pipeline finalizado com sucesso.✨🎉🎊👏😎 #awesome")
     log_and_print("\n🎯 Pipeline completo e validado com sucesso!")

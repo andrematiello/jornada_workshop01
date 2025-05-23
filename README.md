@@ -165,7 +165,12 @@ poetry self add poetry-plugin-shell
 poetry shell
 ```
 
-8. Instale as dependências do projeto (sem empacotar o projeto), use o seguinte comando, constantes no arquivo `pyproject.toml`:
+8. Atualize o registro de forma precisa e imutável todas as dependências e suas versões, incluindo as subdependências. no arquivo `poetry.lock`:
+```bash
+poetry lock
+```
+
+9. Instale as dependências do projeto (sem empacotar o projeto), use o seguinte comando, constantes no arquivo `pyproject.toml`:
 ```bash
 poetry install --no-root
 ```
