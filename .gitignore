@@ -1,7 +1,9 @@
-logs/*
-!logs/.gitkeep
-output/
-!output/.gitkeep
+docs/logs/*
+!docs/logs/.gitkeep
+
+data/output/
+!data/output/.gitkeep
+
 .vscode/
 site_packages.py
 

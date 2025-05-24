@@ -18,13 +18,13 @@
 
 This project primarily focuses on the standardized construction of project structure and documentation, as a secondary aspect, **with less concern for ETL sophistication**, it presents a business problem and the challenge of improving the process by implementing a modular ETL pipeline in Python, divided into three main stages:
 
-- **Extract**: reading and concatenating multiple Excel files.
-- **Transform**: data cleaning and normalization, export to Parquet.
-- **Load**: reading Parquet and final export to Excel.
+- Extract: reading and concatenating multiple Excel files.
+- Transform: data cleaning and normalization, export to Parquet.
+- Load: reading Parquet and final export to Excel.
 
 Strict attention has been paid to project structure and documentation.  
 After each stage, the pipeline performs unit tests with `pytest`.  
-At the end, it performs an **integration test** that validates the global success! 🚀
+At the end, it performs an integration test that validates the global success! 🚀
 
 All events are logged in a file automatically generated in the `docs/` folder.  
 The file records all pipeline stages and unit test results, with the following naming format:  
@@ -288,12 +288,12 @@ Through an orchestrator function `transform_data`, all steps are executed in the
 
 ### This project delivers a complete and professional ETL pipeline, following Data Engineering best practices, with a focus on:
 
-🔹 **Modularity**: each step separated with a single responsibility: Extract, Transform, and Load.  
-🔹 **Testability**: automated tests with Pytest at each step, ensuring code quality and safe evolution.  
-🔹 **Observability**: structured logging system, with automatic generation of log files identified by date and time, allowing complete traceability of each execution.  
-🔹 **Automation**: sequential and validated execution of the entire process, with immediate stop in case of failure, avoiding error propagation.  
-🔹 **Clear documentation**: objective guidelines on execution, project structure, and data flow, facilitating maintenance and scalability.  
-🔹 **Aesthetics and usability**: enriched with emojis and friendly messages to make execution more visual and intuitive.  
+🔹 Modularity: each step separated with a single responsibility: Extract, Transform, and Load.  
+🔹 Testability: automated tests with Pytest at each step, ensuring code quality and safe evolution.  
+🔹 Observability: structured logging system, with automatic generation of log files identified by date and time, allowing complete traceability of each execution.  
+🔹 Automation: sequential and validated execution of the entire process, with immediate stop in case of failure, avoiding error propagation.  
+🔹 Clear documentation: objective guidelines on execution, project structure, and data flow, facilitating maintenance and scalability.  
+🔹 Aesthetics and usability: enriched with emojis and friendly messages to make execution more visual and intuitive.  
 
 ---
 
