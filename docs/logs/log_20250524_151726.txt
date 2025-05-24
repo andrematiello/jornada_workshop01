@@ -1,0 +1,78 @@
+🚀 Iniciando pipeline ETL modular com validação intermediária e logging...
+
+[2025-05-24 15:17:26] - Pipeline 🚀 - INÍCIO - Tempo: 0.00s - Pipeline iniciado.
+📝 Log será salvo em: D:\Onedrive\pessoal\desenvolvimento\cursos\curso-jornada-dados\jornada_dados\3-como-estruturar-do-zero\workshop\docs\logs\log_20250524_151726.txt
+
+📥 Executando Extract...
+[2025-05-24 15:17:26] - Extract 📥 - SUCESSO - Tempo: 0.30s - 
+
+🧪 Rodando testes: tests/test_extract.py
+============================= test session starts =============================
+platform win32 -- Python 3.11.4, pytest-8.3.5, pluggy-1.6.0
+rootdir: D:\Onedrive\pessoal\desenvolvimento\cursos\curso-jornada-dados\jornada_dados\3-como-estruturar-do-zero\workshop
+configfile: pytest.ini
+collected 1 item
+
+tests\test_extract.py .                                                  [100%]
+
+============================== 1 passed in 0.30s ==============================
+
+[2025-05-24 15:17:27] - Test test_extract.py 🧪 - SUCESSO - Tempo: 0.53s - 
+🔧 Executando Transform...
+[2025-05-24 15:17:27] - Transform 🔧 - SUCESSO - Tempo: 0.11s - 
+
+🧪 Rodando testes: tests/test_transform.py
+============================= test session starts =============================
+platform win32 -- Python 3.11.4, pytest-8.3.5, pluggy-1.6.0
+rootdir: D:\Onedrive\pessoal\desenvolvimento\cursos\curso-jornada-dados\jornada_dados\3-como-estruturar-do-zero\workshop
+configfile: pytest.ini
+collected 1 item
+
+tests\test_transform.py F                                                [100%]
+
+================================== FAILURES ===================================
+_____________________________ test_transform_data _____________________________
+
+    def test_transform_data():
+        # \u2705 Arrange
+        data = {
+            'col1': [1, 2, 3, np.nan],
+            'col2': [4.0, 5.0, 6.0, 7.0],
+            'col3': ['a', 'b', 'c', 'd'],
+        }
+        df = pd.DataFrame(data)
+    
+        # \u2705 Act
+>       result = transform_data(df)
+
+tests\test_transform.py:15: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+app\pipeline\transform.py:254: in transform_data
+    df = validate_schema(df, expected_schema)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+df =    col1  col2 col3
+0   0.0   0.0    a
+1   0.5   0.5    b
+2   1.0   1.0    c
+expected_schema = {'ano': 'int64', 'colaborador_id': 'float64', 'colaborador_nome': 'object', 'data': 'datetime64[ns]', ...}
+
+    def validate_schema(df: pd.DataFrame, expected_schema: dict) -> pd.DataFrame:
+        """
+        Valida se o DataFrame possui todas as colunas e tipos conforme o esquema esperado.
+        """
+        print("\U0001f539 Validando esquema do DataFrame...")
+    
+        for column, expected_type in expected_schema.items():
+            if column not in df.columns:
+>               raise ValueError(f"\u274c Coluna obrigat\xf3ria '{column}' ausente no DataFrame.")
+E               ValueError: \u274c Coluna obrigat\xf3ria 'colaborador_id' ausente no DataFrame.
+
+app\pipeline\transform.py:209: ValueError
+---------------------------- Captured stdout call -----------------------------
+\U0001f539 Iniciando transforma\xe7\xe3o de dados...\n\U0001f539 Padronizando nomes das colunas...\n\u2705 Novos nomes das colunas: ['col1', 'col2', 'col3']\n\U0001f539 Removendo linhas com valores nulos...\n\u2705 Linhas restantes ap\xf3s remo\xe7\xe3o de NaN: 3\n\u26a0\ufe0f Coluna 'colaborador_nome' n\xe3o encontrada. Nenhuma altera\xe7\xe3o feita.\n\u26a0\ufe0f Coluna 'data_da_ausencia' n\xe3o encontrada. Nenhuma altera\xe7\xe3o feita.\n\u26a0\ufe0f Coluna 'salario' n\xe3o encontrada. Nenhuma altera\xe7\xe3o feita.\n\U0001f539 Convertendo colunas num\xe9ricas para float...\n\u2705 Colunas convertidas: ['col1', 'col2']\n\U0001f539 Normalizando colunas num\xe9ricas (exceto as exclu\xeddas)...\n\u2705 Coluna 'col1' normalizada.\n\u2705 Coluna 'col2' normalizada.\n\u26a0\ufe0f Coluna 'data' n\xe3o encontrada. Nenhuma coluna derivada criada.\n\U0001f539 Validando esquema do DataFrame...
+=========================== short test summary info ===========================
+FAILED tests/test_transform.py::test_transform_data - ValueError: \u274c Coluna o...
+============================== 1 failed in 0.53s ==============================
+
+[2025-05-24 15:17:27] - Test test_transform.py 🧪 - ERRO - Tempo: 0.76s - 

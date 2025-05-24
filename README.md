@@ -3,8 +3,11 @@
 ![License](https://img.shields.io/badge/license-MIT-green)
 
 <p align="right">
-  <a href="EN-README.md">English</a>
+  <a href="EN-README.md">
+    English <img src="assets/flags/us.png" width="16" alt="US Flag">
+  </a>
 </p>
+
 
 <a href="https://www.flaticon.com/free-icons/etl" title="etl icons">
   <img align="left" alt="etl" height="45" width="45" src="./assets/etl.png">
@@ -150,27 +153,27 @@ pyenv install 3.11.4
 pyenv local 3.11.4
 ```
 
-1. Configure o Poetry para usar o Python 3.11.4:
+5. Configure o Poetry para usar o Python 3.11.4:
 ```bash
 poetry env use 3.11.4
 ```
 
-1. Para criar o ambiente virtual, desde a versão 2 do Poetry, segundo a documentação oficial, o Poetry Shell não acompanha a instalação padrão, devendo er instalado como uma dependência [Poetry Docs](https://python-poetry.org/docs/managing-environments/#powershell):
+6. Para criar o ambiente virtual, desde a versão 2 do Poetry, segundo a documentação oficial, o Poetry Shell não acompanha a instalação padrão, devendo er instalado como uma dependência [Poetry Docs](https://python-poetry.org/docs/managing-environments/#powershell):
 ```bash
 poetry self add poetry-plugin-shell
 ```
 
-1. Para ativar o ambiente virtual:
+7. Para ativar o ambiente virtual:
 ```bash
 poetry shell
 ```
 
-1. Atualize o registro de forma precisa e imutável todas as dependências e suas versões, incluindo as subdependências. no arquivo `poetry.lock`:
+8. Atualize o registro de forma precisa e imutável todas as dependências e suas versões, incluindo as subdependências. no arquivo `poetry.lock`:
 ```bash
 poetry lock
 ```
 
-1. Instale as dependências do projeto (sem empacotar o projeto), use o seguinte comando, constantes no arquivo `pyproject.toml`:
+9. Instale as dependências do projeto (sem empacotar o projeto), use o seguinte comando, constantes no arquivo `pyproject.toml`:
 ```bash
 poetry install --no-root
 ```
@@ -247,6 +250,20 @@ task doc
 
 ---
 
+## ACERCA DOS DADOS
+
+### FORAM REALIZADAS LIMPEZAS E TRANSFORMAÇÕES SIMPLES
+
+Por meio de uma função orquestradora `transform_data` executa todas as etapas, na seguinte ordem:
+
+🔹 Padronização de nomes: previne erros de digitação e inconsistência de nome de colunas. Facilita futuras manipulações e análises.
+🔹 Remoção de linhas com NaN: garante que o dataset não tenha dados incompletos e Evita erros em funções que não aceitam NaN.
+🔹 Remoção de prefixos de nomes: deixando-os mais limpos para análises, relatórios e visualizações e evitando erros de agrupamento ou duplicação causada por diferentes formas de tratamento.
+🔹 Separação de data e hora: facilita análises temporais separadas: por data, hora, dia da semana, etc. e prepara o dataset para potenciais colunas derivadas.
+🔹 Formatação do salário: deixa o dataset pronto para apresentação ou relatórios e facilita o entendimento e legibilidade para stakeholders.
+🔹 Conversão de numéricos para float: assegura que todas as colunas numéricas (int64, float64) sejam convertidas para float.
+🔹 Normalização de numéricos (exceto excluídos): evita erros em operações matemáticas e essencial para algumas funções como normalização.
+
 ## COMENTÁRIOS
 
 ### Agora você tem:
@@ -264,6 +281,8 @@ task doc
 🔹 Automação: execução sequencial e validada de todo o processo, com parada imediata em caso de falha, evitando propagação de erros.  
 🔹 Documentação clara: orientações objetivas sobre execução, estrutura do projeto e fluxo de dados, facilitando manutenção e escalabilidade.  
 🔹 Estética e usabilidade: enriquecido com emojis e mensagens amigáveis para tornar a execução mais visual e intuitiva.  
+
+---
 
 ## PRINCIPAIS CARACTERÍSTICAS TÉCNICAS
 

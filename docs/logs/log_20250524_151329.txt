@@ -1,0 +1,154 @@
+🚀 Iniciando pipeline ETL modular com validação intermediária e logging...
+
+[2025-05-24 15:13:29] - Pipeline 🚀 - INÍCIO - Tempo: 0.00s - Pipeline iniciado.
+📝 Log será salvo em: D:\Onedrive\pessoal\desenvolvimento\cursos\curso-jornada-dados\jornada_dados\3-como-estruturar-do-zero\workshop\docs\logs\log_20250524_151329.txt
+
+📥 Executando Extract...
+[2025-05-24 15:13:29] - Extract 📥 - SUCESSO - Tempo: 0.31s - 
+
+🧪 Rodando testes: tests/test_extract.py
+============================= test session starts =============================
+platform win32 -- Python 3.11.4, pytest-8.3.5, pluggy-1.6.0
+rootdir: D:\Onedrive\pessoal\desenvolvimento\cursos\curso-jornada-dados\jornada_dados\3-como-estruturar-do-zero\workshop
+configfile: pytest.ini
+collected 1 item
+
+tests\test_extract.py .                                                  [100%]
+
+============================== 1 passed in 0.30s ==============================
+
+[2025-05-24 15:13:29] - Test test_extract.py 🧪 - SUCESSO - Tempo: 0.52s - 
+🔧 Executando Transform...
+[2025-05-24 15:13:29] - Transform 🔧 - SUCESSO - Tempo: 0.05s - 
+
+🧪 Rodando testes: tests/test_transform.py
+============================= test session starts =============================
+platform win32 -- Python 3.11.4, pytest-8.3.5, pluggy-1.6.0
+rootdir: D:\Onedrive\pessoal\desenvolvimento\cursos\curso-jornada-dados\jornada_dados\3-como-estruturar-do-zero\workshop
+configfile: pytest.ini
+collected 1 item
+
+tests\test_transform.py F                                                [100%]
+
+================================== FAILURES ===================================
+_____________________________ test_transform_data _____________________________
+
+self = Index(['col1', 'col2', 'col3'], dtype='object'), key = 'colaborador_nome'
+
+    def get_loc(self, key):
+        """
+        Get integer location, slice or boolean mask for requested label.
+    
+        Parameters
+        ----------
+        key : label
+    
+        Returns
+        -------
+        int if unique index, slice if monotonic index, else mask
+    
+        Examples
+        --------
+        >>> unique_index = pd.Index(list('abc'))
+        >>> unique_index.get_loc('b')
+        1
+    
+        >>> monotonic_index = pd.Index(list('abbc'))
+        >>> monotonic_index.get_loc('b')
+        slice(1, 3, None)
+    
+        >>> non_monotonic_index = pd.Index(list('abcb'))
+        >>> non_monotonic_index.get_loc('b')
+        array([False,  True, False,  True])
+        """
+        casted_key = self._maybe_cast_indexer(key)
+        try:
+>           return self._engine.get_loc(casted_key)
+
+.venv\Lib\site-packages\pandas\core\indexes\base.py:3805: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+index.pyx:167: in pandas._libs.index.IndexEngine.get_loc
+    ???
+index.pyx:196: in pandas._libs.index.IndexEngine.get_loc
+    ???
+pandas\\_libs\\hashtable_class_helper.pxi:7081: in pandas._libs.hashtable.PyObjectHashTable.get_item
+    ???
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+>   ???
+E   KeyError: 'colaborador_nome'
+
+pandas\\_libs\\hashtable_class_helper.pxi:7089: KeyError
+
+The above exception was the direct cause of the following exception:
+
+    def test_transform_data():
+        # \u2705 Arrange
+        data = {
+            'col1': [1, 2, 3, np.nan],
+            'col2': [4.0, 5.0, 6.0, 7.0],
+            'col3': ['a', 'b', 'c', 'd'],
+        }
+        df = pd.DataFrame(data)
+    
+        # \u2705 Act
+>       result = transform_data(df)
+
+tests\test_transform.py:15: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+app\pipeline\transform.py:236: in transform_data
+    df = clean_name_prefixes(df, column='colaborador_nome')
+app\pipeline\transform.py:133: in clean_name_prefixes
+    df[column] = df[column].str.replace(r"^(Sr\.|Sra\.|Dr\.|Dra\.)\s*", "", regex=True)
+.venv\Lib\site-packages\pandas\core\frame.py:4102: in __getitem__
+    indexer = self.columns.get_loc(key)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = Index(['col1', 'col2', 'col3'], dtype='object'), key = 'colaborador_nome'
+
+    def get_loc(self, key):
+        """
+        Get integer location, slice or boolean mask for requested label.
+    
+        Parameters
+        ----------
+        key : label
+    
+        Returns
+        -------
+        int if unique index, slice if monotonic index, else mask
+    
+        Examples
+        --------
+        >>> unique_index = pd.Index(list('abc'))
+        >>> unique_index.get_loc('b')
+        1
+    
+        >>> monotonic_index = pd.Index(list('abbc'))
+        >>> monotonic_index.get_loc('b')
+        slice(1, 3, None)
+    
+        >>> non_monotonic_index = pd.Index(list('abcb'))
+        >>> non_monotonic_index.get_loc('b')
+        array([False,  True, False,  True])
+        """
+        casted_key = self._maybe_cast_indexer(key)
+        try:
+            return self._engine.get_loc(casted_key)
+        except KeyError as err:
+            if isinstance(casted_key, slice) or (
+                isinstance(casted_key, abc.Iterable)
+                and any(isinstance(x, slice) for x in casted_key)
+            ):
+                raise InvalidIndexError(key)
+>           raise KeyError(key) from err
+E           KeyError: 'colaborador_nome'
+
+.venv\Lib\site-packages\pandas\core\indexes\base.py:3812: KeyError
+---------------------------- Captured stdout call -----------------------------
+\U0001f539 Iniciando transforma\xe7\xe3o de dados...\n\U0001f539 Padronizando nomes das colunas...\n\u2705 Novos nomes das colunas: ['col1', 'col2', 'col3']\n\U0001f539 Removendo linhas com valores nulos...\n\u2705 Linhas restantes ap\xf3s remo\xe7\xe3o de NaN: 3\n\U0001f539 Removendo prefixos de tratamento de nomes...
+=========================== short test summary info ===========================
+FAILED tests/test_transform.py::test_transform_data - KeyError: 'colaborador_...
+============================== 1 failed in 0.50s ==============================
+
+[2025-05-24 15:13:30] - Test test_transform.py 🧪 - ERRO - Tempo: 0.73s - 

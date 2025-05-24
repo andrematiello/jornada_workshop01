@@ -1,0 +1,66 @@
+🚀 Iniciando pipeline ETL modular com validação intermediária e logging...
+
+[2025-05-24 15:15:43] - Pipeline 🚀 - INÍCIO - Tempo: 0.00s - Pipeline iniciado.
+📝 Log será salvo em: D:\Onedrive\pessoal\desenvolvimento\cursos\curso-jornada-dados\jornada_dados\3-como-estruturar-do-zero\workshop\docs\logs\log_20250524_151543.txt
+
+📥 Executando Extract...
+[2025-05-24 15:15:44] - Extract 📥 - SUCESSO - Tempo: 0.29s - 
+
+🧪 Rodando testes: tests/test_extract.py
+============================= test session starts =============================
+platform win32 -- Python 3.11.4, pytest-8.3.5, pluggy-1.6.0
+rootdir: D:\Onedrive\pessoal\desenvolvimento\cursos\curso-jornada-dados\jornada_dados\3-como-estruturar-do-zero\workshop
+configfile: pytest.ini
+collected 1 item
+
+tests\test_extract.py .                                                  [100%]
+
+============================== 1 passed in 0.29s ==============================
+
+[2025-05-24 15:15:44] - Test test_extract.py 🧪 - SUCESSO - Tempo: 0.50s - 
+🔧 Executando Transform...
+[2025-05-24 15:15:44] - Transform 🔧 - SUCESSO - Tempo: 0.01s - 
+
+🧪 Rodando testes: tests/test_transform.py
+============================= test session starts =============================
+platform win32 -- Python 3.11.4, pytest-8.3.5, pluggy-1.6.0
+rootdir: D:\Onedrive\pessoal\desenvolvimento\cursos\curso-jornada-dados\jornada_dados\3-como-estruturar-do-zero\workshop
+configfile: pytest.ini
+collected 1 item
+
+tests\test_transform.py .                                                [100%]
+
+============================== 1 passed in 0.28s ==============================
+
+[2025-05-24 15:15:45] - Test test_transform.py 🧪 - SUCESSO - Tempo: 0.51s - 
+📤 Executando Load...
+[2025-05-24 15:15:45] - Load 📤 - SUCESSO - Tempo: 0.10s - 
+
+🧪 Rodando testes: tests/test_load.py
+============================= test session starts =============================
+platform win32 -- Python 3.11.4, pytest-8.3.5, pluggy-1.6.0
+rootdir: D:\Onedrive\pessoal\desenvolvimento\cursos\curso-jornada-dados\jornada_dados\3-como-estruturar-do-zero\workshop
+configfile: pytest.ini
+collected 1 item
+
+tests\test_load.py .                                                     [100%]
+
+============================== 1 passed in 0.41s ==============================
+
+[2025-05-24 15:15:45] - Test test_load.py 🧪 - SUCESSO - Tempo: 0.64s - 
+
+✅ Rodando testes: tests/test_pipeline.py
+============================= test session starts =============================
+platform win32 -- Python 3.11.4, pytest-8.3.5, pluggy-1.6.0
+rootdir: D:\Onedrive\pessoal\desenvolvimento\cursos\curso-jornada-dados\jornada_dados\3-como-estruturar-do-zero\workshop
+configfile: pytest.ini
+collected 1 item
+
+tests\test_pipeline.py .                                                 [100%]
+
+============================== 1 passed in 0.41s ==============================
+
+[2025-05-24 15:15:46] - Test test_pipeline.py ✅ - SUCESSO - Tempo: 0.63s - 
+[2025-05-24 15:15:46] - Pipeline 🎯 - FIM - Tempo: 0.00s - Pipeline finalizado com sucesso.✨ 🎉 🎊 👏 😎 #awesome
+
+🎯 Pipeline completo e validado com sucesso!
