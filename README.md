@@ -4,7 +4,7 @@
 
 <p align="right">
   <a href="EN-README.md">
-    English <img src="assets/flags/us.png" width="16" alt="US Flag">
+    English <img src="assets/us.png" width="16" alt="us_flag">
   </a>
 </p>
 
