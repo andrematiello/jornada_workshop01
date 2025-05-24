@@ -107,7 +107,9 @@ Estrutura básica de arquivos para o projeto encontra-se organizada da seguinte 
 │       ├── transform.py
 │       └── load.py
 ├── 📁 assets
+│   └── brazil.png
 │   └── etl.png
+│   └── us.png
 ├── 📁 data
 │   ├── 📁 input
 │   └── 📁 output
@@ -195,22 +197,22 @@ python -m app.main
 
 ### Como rodar os testes individualmente:
 
-- Teste da extração dos dados (extract):
+1. Teste da extração dos dados (extract):
 ```bash
 pytest tests/test_extract.py
 ```
 
-- Teste da transformação dos dados (transform):
+2. Teste da transformação dos dados (transform):
 ```bash
 pytest tests/test_transform.py
 ```
 
-- Teste da carga dos dados em arquivos para excel e formato .parquet (load):
+3. Teste da carga dos dados em arquivos para excel e formato .parquet (load):
 ```bash
 pytest tests/test_load.py
 ```
 
-- Teste de toda pipeline:
+4. Teste de toda pipeline:
 ```bash
 pytest tests/test_pipeline.py
 ```
@@ -256,13 +258,13 @@ task doc
 
 Por meio de uma função orquestradora `transform_data` executa todas as etapas, na seguinte ordem:
 
-🔹 Padronização de nomes: previne erros de digitação e inconsistência de nome de colunas. Facilita futuras manipulações e análises.
-🔹 Remoção de linhas com NaN: garante que o dataset não tenha dados incompletos e Evita erros em funções que não aceitam NaN.
-🔹 Remoção de prefixos de nomes: deixando-os mais limpos para análises, relatórios e visualizações e evitando erros de agrupamento ou duplicação causada por diferentes formas de tratamento.
-🔹 Separação de data e hora: facilita análises temporais separadas: por data, hora, dia da semana, etc. e prepara o dataset para potenciais colunas derivadas.
-🔹 Formatação do salário: deixa o dataset pronto para apresentação ou relatórios e facilita o entendimento e legibilidade para stakeholders.
-🔹 Conversão de numéricos para float: assegura que todas as colunas numéricas (int64, float64) sejam convertidas para float.
-🔹 Normalização de numéricos (exceto excluídos): evita erros em operações matemáticas e essencial para algumas funções como normalização.
+🔹 Padronização de nomes: previne erros de digitação e inconsistência de nome de colunas, ainda facilita futuras manipulações e análises.  
+🔹 Remoção de linhas com NaN: garante que o dataset não tenha dados incompletos e evita erros em funções que não aceitam NaN.  
+🔹 Remoção de prefixos de nomes: deixando-os mais limpos para análises, relatórios e visualizações e evitando erros de agrupamento ou duplicação causada por diferentes formas de tratamento.  
+🔹 Separação de data e hora: facilita análises temporais separadas: por data, hora, dia da semana, etc. e prepara o dataset para potenciais colunas derivadas.  
+🔹 Formatação do salário: deixa o dataset pronto para apresentação ou relatórios e facilita o entendimento e legibilidade para stakeholders.  
+🔹 Conversão de numéricos para float: assegura que todas as colunas numéricas (int64, float64) sejam convertidas para float.  
+🔹 Normalização de numéricos (exceto excluídos): evita erros em operações matemáticas e essencial para algumas funções como normalização.  
 
 ## COMENTÁRIOS
 
